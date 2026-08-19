@@ -4,15 +4,27 @@ export function registerOfflineKit({ swPath = './sw.js' } = {}) {
 }
 
 export function watchOnline(callback) {
-  const update = () => callback(Boolean(navigator.onLine));
-  const onEvent = () => update();
-  window.addEventListener('online', onEvent);
-  window.addEventListener('offline', onEvent);
+  let stopped = false;
+  const probe = async () => {
+    try {
+      await fetch('/ping?t=' + Date.now(), { cache: 'no-store' });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  const update = async () => {
+    const ok = await probe();
+    if (!stopped) callback(ok);
+  };
+  window.addEventListener('online', update);
+  window.addEventListener('offline', update);
   update();
   const timer = setInterval(update, 2000);
   return () => {
-    window.removeEventListener('online', onEvent);
-    window.removeEventListener('offline', onEvent);
+    stopped = true;
+    window.removeEventListener('online', update);
+    window.removeEventListener('offline', update);
     clearInterval(timer);
   };
 }

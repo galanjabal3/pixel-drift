@@ -1,4 +1,4 @@
-const VERSION = 'pixel-drift-v5';
+const VERSION = 'pixel-drift-v6';
 const CACHE_NAME = `pixel-drift-${VERSION}`;
 
 const CORE = ['./', './offline.html', './register.js', './dist/pixel-drift.mjs'];
