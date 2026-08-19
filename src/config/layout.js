@@ -1,0 +1,40 @@
+export const LAYOUT = {
+  width: 900,
+  height: 506,
+  groundRatio: 0.78,
+  playerX: 200,
+  cell: 4,
+  minAlt: 72,
+  maxAltOffset: 14,
+};
+
+export const GROUND = Math.round(LAYOUT.height * LAYOUT.groundRatio);
+
+export const SPAWN = {
+  levelDist: 150,
+  progRate: 0.02,
+  pointRate: 0.010,
+  speedBase: 260,
+  speedPerLevel: 50,
+  speedMax: 880,
+  spawnGapBase: 520,
+  spawnGapMin: 300,
+  spawnGapPerLevel: 40,
+  gateGapBase: 150,
+  gateGapMin: 100,
+  gateGapPerLevel: 10,
+  gateCMin: 160,
+  gateCMax: 260,
+  floorMinH: 40,
+  floorHiBase: 70,
+  floorHiPerLevel: 12,
+  floorHiMax: 110,
+  ceilLoBase: 90,
+  ceilLoPerLevel: 12,
+  ceilLoMax: 150,
+  ceilHiBase: 150,
+  ceilHiPerLevel: 15,
+  ceilHiMax: 210,
+  orbEvery: [0.9, 1.5],
+  powerEvery: [7, 12],
+};

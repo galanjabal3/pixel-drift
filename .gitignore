@@ -1,0 +1,5 @@
+node_modules/
+offline-site/
+dist/
+*.log
+.DS_Store

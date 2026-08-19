@@ -1,0 +1,35 @@
+{
+  "name": "pixel-drift",
+  "version": "0.1.0",
+  "description": "Pixel Drift — reusable offline runner / glider engine (Driftlet).",
+  "type": "module",
+  "main": "dist/pixel-drift.js",
+  "module": "dist/pixel-drift.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/pixel-drift.mjs",
+      "require": "./dist/pixel-drift.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve:offline": "node tools/serve-offline.mjs"
+  },
+  "keywords": [
+    "game",
+    "runner",
+    "canvas",
+    "offline",
+    "glider"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
