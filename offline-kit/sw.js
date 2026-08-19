@@ -1,4 +1,4 @@
-const VERSION = 'pixel-drift-v2';
+const VERSION = 'pixel-drift-v5';
 const CACHE_NAME = `pixel-drift-${VERSION}`;
 
 const CORE = ['./', './offline.html', './register.js', './dist/pixel-drift.mjs'];
@@ -29,23 +29,25 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
 
   if (req.mode === 'navigate') {
+    const serveGame = () =>
+      caches.match('./offline.html').then((c) => c || Response.error());
+    if (navigator.onLine === false) {
+      event.respondWith(serveGame());
+      return;
+    }
+    const withTimeout = (p, ms) =>
+      Promise.race([p, new Promise((r) => setTimeout(() => r(null), ms))]);
     event.respondWith(
-      caches.match(req).then((cached) => {
-        const network = fetch(req)
-          .then((res) => {
-            if (res.ok) {
-              const copy = res.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
-            }
-            return res;
-          })
-          .catch(() =>
-            caches
-              .match('./offline.html')
-              .then((c) => c || cached || Response.error()),
-          );
-        return cached || network;
-      }),
+      withTimeout(fetch(req), 2500)
+        .then((res) => {
+          if (!res) return serveGame();
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
+          }
+          return res;
+        })
+        .catch(serveGame),
     );
     return;
   }
