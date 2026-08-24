@@ -1,6 +1,13 @@
-# Pixel Drift
+<p align="center">
+  <img src="assets/pixel-drift-logo.svg" alt="Pixel Drift" width="360" />
+</p>
 
-Reusable **offline runner / glider engine** — Driftlet terbang lewat lorong kristal. Tahan untuk melayang naik, lepas untuk turun. Dikembangkan sebagai fondasi game fallback halaman offline di berbagai project.
+<h1 align="center">Pixel Drift</h1>
+
+<p align="center">
+  Reusable <strong>offline runner / glider engine</strong> — Driftlet terbang lewat lorong kristal.<br/>
+  Tahan untuk melayang naik, lepas untuk turun.
+</p>
 
 ## Fitur
 
