@@ -5,20 +5,28 @@
   "type": "module",
   "main": "dist/pixel-drift.js",
   "module": "dist/pixel-drift.mjs",
+  "types": "types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/pixel-drift.mjs",
-      "require": "./dist/pixel-drift.js"
+      "require": "./dist/pixel-drift.js",
+      "types": "./types/index.d.ts"
     }
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "serve:offline": "node tools/serve-offline.mjs"
   },
   "keywords": [
@@ -30,6 +38,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "vitest": "^4.1.11"
   }
 }
