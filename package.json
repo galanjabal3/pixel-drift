@@ -27,6 +27,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "prepublishOnly": "npm run build",
     "serve:offline": "node tools/serve-offline.mjs"
   },
   "keywords": [
