@@ -4,6 +4,8 @@
 
 <h1 align="center">Pixel Drift</h1>
 
+![CI](https://github.com/galanjabal3/pixel-drift/actions/workflows/ci.yml/badge.svg) ![License: MIT](https://img.shields.io/badge/license-MIT-7c3aed)
+
 <p align="center">
   Reusable <strong>offline runner / glider engine</strong> — Driftlet terbang lewat lorong kristal.<br/>
   Tahan untuk melayang naik, lepas untuk turun.
